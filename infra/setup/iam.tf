@@ -1,110 +1,110 @@
-# #########################
-# # Policy for  EFS + EC2 + RDS #
-# #########################
+#########################
+# Policy for  EFS + EC2 + RDS #
+#########################
 
 
-# data "aws_iam_policy_document" "infra_combined" {
-#   statement {
-#     effect = "Allow"
-#     actions = [
-#       "rds:DescribeDBSubnetGroups",
-#       "rds:DescribeDBInstances",
-#       "rds:CreateDBSubnetGroup",
-#       "rds:DeleteDBSubnetGroup",
-#       "rds:CreateDBInstance",
-#       "rds:DeleteDBInstance",
-#       "rds:ListTagsForResource",
-#       "rds:ModifyDBInstance",
-#       "rds:AddTagsToResource"
-#     ]
-#     resources = ["*"]
-#   }
+data "aws_iam_policy_document" "infra_combined" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "rds:DescribeDBSubnetGroups",
+      "rds:DescribeDBInstances",
+      "rds:CreateDBSubnetGroup",
+      "rds:DeleteDBSubnetGroup",
+      "rds:CreateDBInstance",
+      "rds:DeleteDBInstance",
+      "rds:ListTagsForResource",
+      "rds:ModifyDBInstance",
+      "rds:AddTagsToResource"
+    ]
+    resources = ["*"]
+  }
 
-#   statement {
-#     effect = "Allow"
-#     actions = [
-#       "ec2:DescribeVpcs",
-#       "ec2:CreateTags",
-#       "ec2:CreateVpc",
-#       "ec2:DeleteVpc",
-#       "ec2:DescribeSecurityGroups",
-#       "ec2:DeleteSubnet",
-#       "ec2:DeleteSecurityGroup",
-#       "ec2:DescribeNetworkInterfaces",
-#       "ec2:DetachInternetGateway",
-#       "ec2:DescribeInternetGateways",
-#       "ec2:DeleteInternetGateway",
-#       "ec2:DetachNetworkInterface",
-#       "ec2:DescribeVpcEndpoints",
-#       "ec2:DescribeRouteTables",
-#       "ec2:DeleteRouteTable",
-#       "ec2:DeleteVpcEndpoints",
-#       "ec2:DisassociateRouteTable",
-#       "ec2:DeleteRoute",
-#       "ec2:DescribePrefixLists",
-#       "ec2:DescribeSubnets",
-#       "ec2:DescribeVpcAttribute",
-#       "ec2:DescribeNetworkAcls",
-#       "ec2:AssociateRouteTable",
-#       "ec2:AuthorizeSecurityGroupIngress",
-#       "ec2:RevokeSecurityGroupEgress",
-#       "ec2:CreateSecurityGroup",
-#       "ec2:AuthorizeSecurityGroupEgress",
-#       "ec2:CreateVpcEndpoint",
-#       "ec2:ModifySubnetAttribute",
-#       "ec2:CreateSubnet",
-#       "ec2:CreateRoute",
-#       "ec2:CreateRouteTable",
-#       "ec2:CreateInternetGateway",
-#       "ec2:AttachInternetGateway",
-#       "ec2:ModifyVpcAttribute",
-#       "ec2:DescribeAccountAttributes",
-#       "ec2:RevokeSecurityGroupIngress",
-#       "ec2:CreateNetworkInterface",
-#       "ec2:DescribeNetworkInterfaces",
-#       "ec2:AttachNetworkInterface",
-#       "ec2:DescribeSecurityGroups",
-#       "ec2:DescribeSubnets",
-#       "ec2:DescribeVpcs",
-#       "ec2:CreateTags",
-#       "ec2:DeleteNetworkInterface",
-#       "ec2:ModifyNetworkInterfaceAttribute",
-#       "ec2:DescribeNetworkInterfaceAttribute"
-#     ]
-#     resources = ["*"]
-#   }
+  statement {
+    effect = "Allow"
+    actions = [
+      "ec2:DescribeVpcs",
+      "ec2:CreateTags",
+      "ec2:CreateVpc",
+      "ec2:DeleteVpc",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DeleteSubnet",
+      "ec2:DeleteSecurityGroup",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:DetachInternetGateway",
+      "ec2:DescribeInternetGateways",
+      "ec2:DeleteInternetGateway",
+      "ec2:DetachNetworkInterface",
+      "ec2:DescribeVpcEndpoints",
+      "ec2:DescribeRouteTables",
+      "ec2:DeleteRouteTable",
+      "ec2:DeleteVpcEndpoints",
+      "ec2:DisassociateRouteTable",
+      "ec2:DeleteRoute",
+      "ec2:DescribePrefixLists",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcAttribute",
+      "ec2:DescribeNetworkAcls",
+      "ec2:AssociateRouteTable",
+      "ec2:AuthorizeSecurityGroupIngress",
+      "ec2:RevokeSecurityGroupEgress",
+      "ec2:CreateSecurityGroup",
+      "ec2:AuthorizeSecurityGroupEgress",
+      "ec2:CreateVpcEndpoint",
+      "ec2:ModifySubnetAttribute",
+      "ec2:CreateSubnet",
+      "ec2:CreateRoute",
+      "ec2:CreateRouteTable",
+      "ec2:CreateInternetGateway",
+      "ec2:AttachInternetGateway",
+      "ec2:ModifyVpcAttribute",
+      "ec2:DescribeAccountAttributes",
+      "ec2:RevokeSecurityGroupIngress",
+      "ec2:CreateNetworkInterface",
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:AttachNetworkInterface",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "ec2:CreateTags",
+      "ec2:DeleteNetworkInterface",
+      "ec2:ModifyNetworkInterfaceAttribute",
+      "ec2:DescribeNetworkInterfaceAttribute"
+    ]
+    resources = ["*"]
+  }
 
-#   statement {
-#     effect = "Allow"
-#     actions = [
-#       "elasticfilesystem:DescribeFileSystems",
-#       "elasticfilesystem:DescribeAccessPoints",
-#       "elasticfilesystem:DeleteFileSystem",
-#       "elasticfilesystem:DeleteAccessPoint",
-#       "elasticfilesystem:DescribeMountTargets",
-#       "elasticfilesystem:DeleteMountTarget",
-#       "elasticfilesystem:DescribeMountTargetSecurityGroups",
-#       "elasticfilesystem:DescribeLifecycleConfiguration",
-#       "elasticfilesystem:CreateMountTarget",
-#       "elasticfilesystem:CreateAccessPoint",
-#       "elasticfilesystem:CreateFileSystem",
-#       "elasticfilesystem:TagResource",
-#     ]
-#     resources = ["*"]
-#   }
+  statement {
+    effect = "Allow"
+    actions = [
+      "elasticfilesystem:DescribeFileSystems",
+      "elasticfilesystem:DescribeAccessPoints",
+      "elasticfilesystem:DeleteFileSystem",
+      "elasticfilesystem:DeleteAccessPoint",
+      "elasticfilesystem:DescribeMountTargets",
+      "elasticfilesystem:DeleteMountTarget",
+      "elasticfilesystem:DescribeMountTargetSecurityGroups",
+      "elasticfilesystem:DescribeLifecycleConfiguration",
+      "elasticfilesystem:CreateMountTarget",
+      "elasticfilesystem:CreateAccessPoint",
+      "elasticfilesystem:CreateFileSystem",
+      "elasticfilesystem:TagResource",
+    ]
+    resources = ["*"]
+  }
 
-# }
+}
 
-# resource "aws_iam_policy" "infra_combined" {
-#   name        = "${aws_iam_user.cd.name}-infra"
-#   description = "Combined policy for EC2, EFS, and RDS"
-#   policy      = data.aws_iam_policy_document.infra_combined.json
-# }
+resource "aws_iam_policy" "infra_combined" {
+  name        = "${aws_iam_user.cd.name}-infra"
+  description = "Combined policy for EC2, EFS, and RDS"
+  policy      = data.aws_iam_policy_document.infra_combined.json
+}
 
-# resource "aws_iam_user_policy_attachment" "infra_combined" {
-#   user       = aws_iam_user.cd.name
-#   policy_arn = aws_iam_policy.infra_combined.arn
-# }
+resource "aws_iam_user_policy_attachment" "infra_combined" {
+  user       = aws_iam_user.cd.name
+  policy_arn = aws_iam_policy.infra_combined.arn
+}
 #######################################################################
 # Create IAM user and policies for Continuous Deployment (CD) account #
 #######################################################################
