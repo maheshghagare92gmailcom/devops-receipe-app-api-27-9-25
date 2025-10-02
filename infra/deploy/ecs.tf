@@ -1,6 +1,6 @@
-# ##
-# # ECS Cluster for running app on Fargate.
-# ##
+##
+# ECS Cluster for running app on Fargate.
+##
 
 # resource "aws_iam_policy" "task_execution_role_policy" {
 #   name        = "${local.prefix}-task-exec-role-policy"
@@ -40,9 +40,9 @@
 #   name = "${local.prefix}-api"
 # }
 
-# resource "aws_ecs_cluster" "main" {
-#   name = "${local.prefix}-cluster"
-# }
+resource "aws_ecs_cluster" "main" {
+  name = "${local.prefix}-cluster"
+}
 
 # resource "aws_ecs_task_definition" "api" {
 #   family                   = "${local.prefix}-api"
